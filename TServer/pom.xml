@@ -4,20 +4,18 @@
   <artifactId>TServer</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
-  
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-         <appName>safe-shore-96333</appName>
-         <processTypes>
-     <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
-  </processTypes>
-          <release>11</release>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <plugins>
+    <plugin>
+      <groupId>com.heroku.sdk</groupId>
+      <artifactId>heroku-maven-plugin</artifactId>
+      <version>3.0.4</version>
+      <configuration>
+        <appName>${heroku.safe-shore-96333}</appName>
+        <processTypes>
+          <web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.example.Main</web>
+        </processTypes>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
 </project>
